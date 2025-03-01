@@ -1,16 +1,13 @@
 <template>
   <div>
     <HeaderVue />
-    <TodoVue />
-    <MainVue />
+    <router-view></router-view>
   </div>
 </template>
 
 <script setup>
   import HeaderVue from './components/HeaderVue.vue'
-  import TodoVue from './components/TodoVue.vue'
-  import MainVue from './components/MainVue.vue'
-
+  import HomePage from './views/HomePage.vue'
 </script>
 
 <style lang="scss" scoped>

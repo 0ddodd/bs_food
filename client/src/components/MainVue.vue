@@ -1,8 +1,8 @@
 <template>
     <div class="container text-center">
         <div class="row">
-            <div class="col-4" v-for="info, i in foodImgInfo" :key="i">
-                <div class="card mb-3">
+            <div class="col-3" v-for="info, i in foodImgInfo" :key="i">
+                <router-link to="/map" class="card mb-3">
                     <img
                         :src="info.FOOD_IMG_URL"
                         class="img-fluid"
@@ -13,7 +13,7 @@
                         <p>{{info.RSTR_NM}}</p>
                         <p>{{info.AREA_NM}}</p>
                     </div>
-                </div>
+                </router-link>
             </div>
         </div>
     </div>
