@@ -5,6 +5,7 @@ const menusRouter = express.Router();
 
 menusRouter.get("/info", async (req,res) => {
     try {
+        console.log(process.env.BUSAN_FOOD_API_URL)
         const result = await axios.get(`${process.env.BUSAN_FOOD_API_URL}/menu/korean`, {
             params: {
                 serviceKey: process.env.BUSAN_FOOD_API_KEY,
