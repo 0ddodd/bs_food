@@ -5,15 +5,19 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { ref } from "vue";
+    import { Todo } from '../types/todo';
 
-    const props = defineProps(['todo']);
-    const emit = defineEmits(['update-todo', 'close-update'])
+    const props = defineProps<{todo: Todo}>();
+    const emit = defineEmits<{
+        (e: 'update-todo', todo:Todo): void;
+        (e: 'close-update'): void;
+    }>()
 
-    const updatedTodo = ref("");
+    const updatedTodo = ref<string>("");
 
-    const updateTodo = (todo) => {
+    const updateTodo = (todo: Todo) => {
         emit('update-todo', {...props.todo, text: updatedTodo.value});
         updatedTodo.value = "";
         emit('close-update');

@@ -19,7 +19,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import axios from 'axios';
     import { onMounted, ref, computed } from 'vue';
 
@@ -34,6 +34,7 @@
         ])
 
         foodInfo.value = infoResult.data.body;
+        console.log(foodInfo.value)
         foodImgInfo.value = imgResult.data.body.reduce((acc, curr) => {
             if (!acc.some(item => item.MENU_ID === curr.MENU_ID)) {
                 acc.push(curr);

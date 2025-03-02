@@ -5,9 +5,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import HeaderVue from './components/HeaderVue.vue'
-  import HomePage from './views/HomePage.vue'
 </script>
 
 <style lang="scss" scoped>

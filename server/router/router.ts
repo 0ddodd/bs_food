@@ -1,9 +1,9 @@
 import axios from "axios";
-import express from "express";
+import express, {Request, Response} from "express";
 
 const menusRouter = express.Router();
 
-menusRouter.get("/info", async (req,res) => {
+menusRouter.get("/info", async (req: Request, res: Response) => {
     try {
         console.log(process.env.BUSAN_FOOD_API_URL)
         const result = await axios.get(`${process.env.BUSAN_FOOD_API_URL}/menu/korean`, {
@@ -19,7 +19,7 @@ menusRouter.get("/info", async (req,res) => {
     }
 });
 
-menusRouter.get("/img", async (req,res) => {
+menusRouter.get("/img", async (req: Request, res: Response) => {
     try {
         const result = await axios.get(`${process.env.BUSAN_FOOD_API_URL}/food/img`, {
             params: {

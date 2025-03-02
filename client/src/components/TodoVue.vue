@@ -22,13 +22,13 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import { ref } from 'vue';
     import TodoModal from './TodoModal.vue'
+    import { Todo } from '../types/todo';
 
-
-    const newTodo = ref("");
-    const todos = ref([]);
+    const newTodo = ref<string>("");
+    const todos = ref<Todo[]>([]);
 
     const addTodo = () => {
         todos.value.push({
@@ -40,24 +40,24 @@
         newTodo.value="";
     };
 
-    const toggleDone = (todo) => {
+    const toggleDone = (todo: Todo) => {
         todo.isDone = !todo.isDone;
     };
 
-    const deleteTodo = (todo) => {
+    const deleteTodo = (todo: Todo) => {
         todos.value = todos.value.filter(td => td.id !== todo.id);
     };
     
-    const openUpdate = (todo) => {
+    const openUpdate = (todo: Todo) => {
         todo.isEditing = true;
     };
 
-    const updateTodo = (updatedTodo) => {
+    const updateTodo = (updatedTodo: Todo) => {
         const targetTodo = todos.value.find(td => td.id === updatedTodo.id);
         targetTodo.text = updatedTodo.text;
     }
 
-    const closeUpdate = (todo) => {
+    const closeUpdate = (todo: Todo) => {
         todo.isEditing = false
     }
 
