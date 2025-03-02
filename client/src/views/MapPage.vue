@@ -1,5 +1,6 @@
 <template>
     <div>
+        <KakaoMap />
         {{address}}
     </div>
 </template>
@@ -8,6 +9,7 @@
     import axios from "axios";
     import { onMounted, ref } from "vue";
     import { useRoute } from "vue-router";
+    import KakaoMap from "../components/KakaoMap.vue";
 
     const route = useRoute();
     const address = ref<string | string[]>("")
